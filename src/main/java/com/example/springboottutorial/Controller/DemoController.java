@@ -1,5 +1,7 @@
-package com.example.springboottutorial;
+package com.example.springboottutorial.Controller;
 
+import com.example.springboottutorial.Customer.Customer;
+import com.example.springboottutorial.Customer.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,6 +10,11 @@ public class DemoController {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @GetMapping("/hello")
+    public String sayHello(@RequestParam(value = "myName", defaultValue = "World") String name) {
+        return String.format("Hello %s!", name);
+    }
 
     @PostMapping("/add")
     public String addCustomer(@RequestParam String first, @RequestParam String last) {

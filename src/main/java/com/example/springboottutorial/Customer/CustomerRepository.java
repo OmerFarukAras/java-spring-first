@@ -1,4 +1,4 @@
-package com.example.springboottutorial;
+package com.example.springboottutorial.Customer;
 
 import org.springframework.data.repository.CrudRepository;
 
