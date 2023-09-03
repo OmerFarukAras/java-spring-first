@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Customer {
@@ -11,9 +13,14 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
+    @Size(max = 20, min = 3, message = "Invalid Name, Size should be between 3 to 20")
+    @NotEmpty(message = "Please enter your name")
     private String firstName;
+    @Size(max = 20, min = 3, message = "Invalid Name, Size should be between 3 to 20")
+    @NotEmpty(message = "Please enter your name")
     private String lastName;
+
+
 
     public Integer getId() {
         return id;
